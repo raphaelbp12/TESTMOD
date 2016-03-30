@@ -8,6 +8,24 @@
 
 //////////////////////////////// Utility soundscapes ////////////////////////
 
+"overwatch_mp"
+{
+	"playrandom"
+	{
+		"time"		"45,90"
+		"volume"		"0.1,0.5"
+		"pitch"		"100"
+
+		"rndwave"
+		{
+			"wave"	"*npc/overwatch/cityvoice/f_trainstation_inform_spkr.wav"
+			"wave"	"*npc/overwatch/cityvoice/f_anticivilevidence_3_spkr.wav"
+			"wave"	"*npc/overwatch/cityvoice/f_innactionisconspiracy_spkr.wav"
+			"wave"	"*npc/overwatch/cityvoice/f_localunrest_spkr.wav"
+		}
+	}
+}
+
 "streetwar.util_combine_atmosphere"
 {
 	"playrandom"
@@ -769,6 +787,12 @@
 		"name"		"streetwar.util_medium_combat"
 		"volume"	"0.5"	
 	}
+
+	"playsoundscape"
+	{
+		"name"		"overwatch_mp"
+		"volume"	"1.0"	
+	}
 }
 
 "streetwar.general_indoor_heavy_combat"
@@ -856,6 +880,12 @@
 	"playsoundscape"
 	{
 		"name"		"streetwar.util_medium_combat"
+		"volume"	"1.0"	
+	}
+
+	"playsoundscape"
+	{
+		"name"		"overwatch_mp"
 		"volume"	"1.0"	
 	}
 }

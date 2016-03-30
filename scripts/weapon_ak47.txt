@@ -19,6 +19,8 @@ WeaponData
 	"weight"		"2"
 	"rumble"		"1"
 	"item_flags"		"0"
+	
+	"damage"		"75"
 
 	// Sounds for the weapon. There is a max of 16 sounds per category (i.e. max 16 "single_shot" sounds)
 	SoundData
@@ -60,10 +62,7 @@ WeaponData
 		"crosshair"
 		{
 				"font"		"Crosshairs"
-				"x"			"0"
-				"y"			"48"
-				"width"		"24"
-				"height"	"24"
+				"character"	"Q"
 		}
 		"autoaim"
 		{
@@ -72,19 +71,6 @@ WeaponData
 				"y"			"48"
 				"width"		"24"
 				"height"	"24"
-		}
-	}
-	ModelBounds
-	{
-		Viewmodel
-		{
-			Mins	"-9 -3 -13"
-			Maxs	"30 11 0"
-		}
-		World
-		{
-			Mins	"-9 -9 -9"
-			Maxs	"30 9 7"
 		}
 	}
 }
