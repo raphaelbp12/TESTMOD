@@ -1,6 +1,6 @@
 "Logitech G-15 Keyboard Layout"
 {
-	"game"		"Half-Life 2"
+	"game"		"Half-Life 2 Deathmatch"
 	"chatlines"	"8"  // number of chat lines to keep (1-64)
 	
 	// These need to be 1bpp HICONs
@@ -12,7 +12,9 @@
 	
 	// Global replacements
 	"replace"
-	{
+	{		
+		"alive_true"		"Alive"
+		"alive_false"		"DEAD"
 	}
 		
 	// title page is special
@@ -24,7 +26,7 @@
 		"static_icon"
 		{
 			"x"			"0"
-			"y"			"4"
+			"y"			"5"
 			"w"			"32"
 			"h"			"32"
 			"name"		"game_icon"
@@ -37,7 +39,7 @@
 			"x"			"34"
 			"y"			"10"
 			"w"			"120"
-			"text"		"Half-Life 2"
+			"text"		"Half-Life 2:"
 		}
 			
 		"static_text"
@@ -47,7 +49,7 @@
 			"x"			"34"
 			"y"			"25"
 			"w"			"120"
-			"text"		 " "
+			"text"		"Death Match"
 		}
 			
 //		"icon"
@@ -65,17 +67,18 @@
 			"size"		"medium"
 			"align"		"left"
 			"x"			"10"
-			"y"			"0"
+			"y"			"4"
 			"w"			"150"
-			"text"		"(mapname):  (time_int)"
+			"text"		"Team:  %(localteam)m_szTeamName%"
 		}
-
+	
+		
 		"static_text"
 		{
 			"size"		"medium"
 			"align"		"left"
 			"x"			"10"
-			"y"			"15"
+			"y"			"18"
 			"w"			"150"
 			"text"		"Health:  - %(localplayer)m_iHealth% -"
 		}
@@ -85,9 +88,181 @@
 			"size"		"medium"
 			"align"		"left"
 			"x"			"10"
-			"y"			"30"
+			"y"			"32"
 			"w"			"150"
 			"text"		"(weapon_print_name):  - (ammo_primary) -"
+		}
+	}
+	
+	"page"   // My Team
+	{
+		// Create legend
+		"requiresplayer"	"1"
+		
+		"static_text"
+		{
+			"size"		"small"
+			"align"		"left"
+			"x"			"2"
+			"y"			"2"
+			"w"			"10"
+			"text"		"#"
+			"header"	"1"
+		}
+			
+		"static_text"
+		{
+			"size"		"small"
+			"align"		"left"
+			"x"			"12"
+			"y"			"2"
+			"w"			"85"
+			"text"		"%(localteam)m_szTeamName%"
+			"header"	"1"
+		}
+		
+		"static_text"
+		{
+			"size"		"small"
+			"align"		"right"
+			"x"			"97"
+			"y"			"2"
+			"w"			"63"
+			"text"		"Status"
+			"header"	"1"
+		}
+
+		"iterate_team"
+		{
+			"x"				"2"
+			"Y"				"13"
+			"y_increment"	"10"
+			
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"left"
+				"x"			"2"
+				"y"			"0"
+				"w"			"10"
+				"text"		"(itemnumber)."
+			}
+			
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"left"
+				"x"			"12"
+				"y"			"0"
+				"w"			"85"
+				"text"		"%(playerresource)m_szName[(playerindex)]%"
+			}
+			
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"right"
+				"x"			"97"
+				"y"			"0"
+				"w"			"60"
+				"text"		"alive_%(playerresource)m_bAlive[(playerindex)]%"
+			}
+		}
+	}
+	
+	"page"   // Scoreboard info
+	{
+		// Create legend
+		"requiresplayer"	"1"
+		
+		"static_text"
+		{
+			"size"		"small"
+			"align"		"left"
+			"x"			"2"
+			"y"			"2"
+			"w"			"10"
+			"text"		"#"
+			"header"	"1"
+		}
+			
+		"static_text"
+		{
+			"size"		"small"
+			"align"		"left"
+			"x"			"12"
+			"y"			"2"
+			"w"			"85"
+			"text"		"Player"
+			"header"	"1"
+		}
+		
+		"static_text"
+		{
+			"size"		"small"
+			"align"		"right"
+			"x"			"77"
+			"y"			"2"
+			"w"			"83"
+			"text"		"Score/Deaths/Ping"
+			"header"	"1"
+		}
+
+		"iterate_players"
+		{
+			"x"				"2"
+			"Y"				"13"
+			"y_increment"	"10"
+			
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"left"
+				"x"			"2"
+				"y"			"0"
+				"w"			"10"
+				"text"		"(itemnumber)."
+			}
+			
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"left"
+				"x"			"12"
+				"y"			"0"
+				"w"			"85"
+				"text"		"%(playerresource)m_szName[(playerindex)]%"
+			}
+		
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"right"
+				"x"			"97"
+				"y"			"0"
+				"w"			"15"
+				"text"		"%(playerresource)m_iScore[(playerindex)]%"
+			}
+		
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"right"
+				"x"			"112"
+				"y"			"0"
+				"w"			"15"
+				"text"		"%(playerresource)m_iDeaths[(playerindex)]%"
+			}
+			
+			"static_text"
+			{
+				"size"		"small"
+				"align"		"right"
+				"x"			"127"
+				"y"			"0"
+				"w"			"15"
+				"text"		"%(playerresource)m_iPing[(playerindex)]%"
+			}
 		}
 	}
 	
